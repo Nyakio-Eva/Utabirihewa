@@ -1,0 +1,18 @@
+{
+    "name": "evie/weatherapp",
+    "description": "first php app",
+    "autoload": {
+        "psr-4": {
+            "Evie\\Weatherapp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nyakio-Eva",
+            "email": "evalkariuki@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.10"
+    }
+}
