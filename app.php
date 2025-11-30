@@ -9,9 +9,18 @@ use Evie\Weatherapp\WeatherService;
 
 $weatherService= new WeatherService();
 
-$city='Nairobi';
+if ($argc < 2){
+    echo "use php app.php city name! \n";
+    exit(1);
+}
 
+$city=$argv['1'];
+
+echo "Get weather for $city city\n";
 
 $weather = $weatherService->getWeather($city);
 
-var_dump($weather);
+echo"\n";
+echo "The temperature is:" . $weather['temperature'] . " Celsius\n";
+echo "The humidity is:" . $weather['humidity']. " %\n";
+echo "Description:" . $weather['description'] ."\n";
