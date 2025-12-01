@@ -22,7 +22,7 @@ echo "Get weather for $city city\n";
 
 $weather = $weatherService->getWeather($city); //call the getweather method and store the data in the weather variable
 
-//display the data in the cli
+//display the data in the cli by extracting values from the keys in the associative array returned
 echo"\n";
 echo "The temperature is:" . $weather['temperature'] . " Celsius\n";
 echo "The humidity is:" . $weather['humidity']. " %\n";
