@@ -19,7 +19,7 @@ class WeatherService  //define weather service class
 
     public function getWeather(string $city): array     //the getter method for retrieving weather data from the api and takes the string city as a parameter an returns an array
     {
-        $response = $this->client->get($this->apiUrl, [   //response is a guzzle's response object (json), it reps the client instance that uses the http get method to ask for data using the api url, and the query parameters
+        $response = $this->client->get($this->apiUrl, [   //response is a guzzle's instance that contains json, it reps the client instance that uses the http get method to ask for data using the api url, and the query parameters
             'query' => [
                 'q' => $city,
                 'appid' => $this->apiKey,
@@ -28,8 +28,8 @@ class WeatherService  //define weather service class
         ]);
 
         $weatherData = json_decode($response->getBody()->getContents(), true);  //it then stores the data in this variable after decoding it to an associative array using json_decode
-                                                                                //the getBody and getContents methods are part of the response object from guzzle, so you choose what you want from the response.
-        return [  //after decoding you display the associative array
+                                                                                //the getBody and getContents methods are part of the response object from guzzle. getBody()= returns a stream object, getContents()=reads the json string from that stream, json_decodes converts the json string to an associative array
+        return [  //after decoding you return the associative array
             'city' => $weatherData['name'],
             'temperature' => $weatherData['main']['temp'],
             'description' => $weatherData['weather'][0]['description'],
